@@ -46,7 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
                     // 调用数据库方法注册用户
                     if (dbHelper.registerUser(username, password)) {
                         Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class)); // 跳转到登录界面
+                        // 注册成功后返回主界面
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                         finish();
                     } else {
                         Toast.makeText(RegisterActivity.this, "用户名已存在", Toast.LENGTH_SHORT).show();
