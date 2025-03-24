@@ -1,12 +1,15 @@
 package com.example.campus_life_assistant;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin, btnRegister;
     private DatabaseHelper dbHelper;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
             // 使用数据库验证用户凭据
             if (dbHelper.checkUserCredentials(username, password)) {
                 Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
-                // 移除跳转到主页面的代码
+                // TODO: 登录成功后跳转到主页面
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
             } else {
                 Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
@@ -55,5 +62,21 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_app_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            // TODO: 跳转到设置界面
+            Toast.makeText(this, "设置功能开发中", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
