@@ -39,8 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     // 调用数据库方法检查用户凭据
                     if (dbHelper.checkUserCredentials(username, password)) {
                         Toast.makeText(LoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class)); // 跳转到主界面
-                        finish();
+                        // 移除跳转到主界面的代码
                     } else {
                         Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }

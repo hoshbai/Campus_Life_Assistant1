@@ -43,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
             // 使用数据库验证用户凭据
             if (dbHelper.checkUserCredentials(username, password)) {
                 Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
-                // 登录成功后跳转到主页面
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                // 移除跳转到主页面的代码
             } else {
                 Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
