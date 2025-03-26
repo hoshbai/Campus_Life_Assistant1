@@ -36,13 +36,19 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "请填写用户名和密码", Toast.LENGTH_SHORT).show();
                 } else {
-                    // 调用数据库方法检查用户凭据
-                    if (dbHelper.checkUserCredentials(username, password)) {
-                        Toast.makeText(LoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
-                        // 移除跳转到主界面的代码
-                    } else {
-                        Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-                    }
+                    // 调用数据库方法检查用户凭据（异步）
+                    dbHelper.checkUserCredentials(username, password, success -> {
+                        if (success) {
+                            runOnUiThread(() -> {
+                                Toast.makeText(LoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                                // 移除跳转到主界面的代码
+                            });
+                        } else {
+                            runOnUiThread(() -> {
+                                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                            });
+                        }
+                    });
                 }
             }
         });
