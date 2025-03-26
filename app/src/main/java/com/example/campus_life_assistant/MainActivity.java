@@ -3,6 +3,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.campus_life_assistant.entry.Module;
+import com.example.campus_life_assistant.entry.ModuleAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

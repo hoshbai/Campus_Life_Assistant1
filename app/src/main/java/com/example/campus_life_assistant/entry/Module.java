@@ -1,4 +1,4 @@
-package com.example.campus_life_assistant;
+package com.example.campus_life_assistant.entry;
 
 public class Module {
     private String name;
