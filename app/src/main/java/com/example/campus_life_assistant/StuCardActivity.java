@@ -2,6 +2,7 @@ package com.example.campus_life_assistant;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,7 @@ public class StuCardActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         RecyclerView rvTransactions = findViewById(R.id.rvTransactions);
+        rvTransactions.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         adapter = new TransactionAdapter(transactions);
         rvTransactions.setLayoutManager(new LinearLayoutManager(this));
         rvTransactions.setAdapter(adapter);

@@ -23,5 +23,13 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+
+
+    </style>
+    <style name="Theme.CampusLifeAssistant" parent="Theme.Material3.DayNight">
+        <!-- 自定义颜色 -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
     </style>
 </resources>

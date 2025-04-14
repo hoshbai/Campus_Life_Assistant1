@@ -5,30 +5,54 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     tools:context=".RepairActivity">
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:padding="16dp">
 
-        <LinearLayout android:orientation="vertical"
-            android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etDescription"
-                android:hint="请描述设备问题"
-                android:inputType="textMultiLine"
-                android:layout_width="match_parent" android:layout_height="120dp"/>
+            <!-- 描述输入框 -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDescription"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请描述设备问题">
 
-            <Button
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:minLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- 提交按钮 -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSubmit"
-                android:text="提交报修"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                android:backgroundTint="@color/primaryColor"
+                android:text="提交报修"
+                android:textColor="@android:color/white" />
 
+            <!-- 报修记录列表 -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvRepairs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                android:background="@drawable/rounded_background"
+                android:padding="8dp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

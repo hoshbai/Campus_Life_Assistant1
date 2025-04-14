@@ -19,8 +19,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView textView = view.findViewById(R.id.tv_profile);
-        textView.setText("这是我的页面");
+
 
         return view;
     }

@@ -2,6 +2,7 @@ package com.example.campus_life_assistant;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class RepairActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         RecyclerView rvRepairs = findViewById(R.id.rvRepairs);
+        rvRepairs.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         adapter = new RepairAdapter(requests);
         rvRepairs.setLayoutManager(new LinearLayoutManager(this));
         rvRepairs.setAdapter(adapter);
