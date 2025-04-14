@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.campus_life_assistant.Dao.DatabaseHelper;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etLoginUsername, etLoginPassword;

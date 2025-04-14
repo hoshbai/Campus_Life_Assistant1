@@ -1,4 +1,4 @@
-package com.example.campus_life_assistant;
+package com.example.campus_life_assistant.Dao;
 
 import android.content.ContentValues;
 import android.content.Context;

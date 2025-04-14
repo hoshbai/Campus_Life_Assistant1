@@ -25,4 +25,8 @@
     <color name="md_theme_light_surfaceTint">#006C4C</color>
     <color name="md_theme_light_outlineVariant">#BFC9C2</color>
     <color name="md_theme_light_scrim">#000000</color>
+
+    <color name="required_course">#FF6F61</color>
+    <color name="elective_course">#6B8E23</color>
+    <color name="default_course">#A9A9A9</color>
 </resources>

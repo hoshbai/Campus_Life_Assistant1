@@ -1,4 +1,4 @@
-package com.example.campus_life_assistant.entry;
+package com.example.campus_life_assistant.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.campus_life_assistant.R;
+import com.example.campus_life_assistant.entry.Module;
 
 import java.util.List;
 
