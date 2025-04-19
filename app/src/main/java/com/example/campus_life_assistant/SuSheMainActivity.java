@@ -1,5 +1,6 @@
 package com.example.campus_life_assistant;
 import android.icu.text.SimpleDateFormat;
+import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,26 +17,38 @@ public class SuSheMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sushe_main);
 
-        // 初始化功能卡片点击事件
-        findViewById(R.id.cvRepair).setOnClickListener(v -> {
-            startActivity(new Intent(this, RepairActivity.class));
-        });
-
-        findViewById(R.id.cvCharge).setOnClickListener(v -> {
-            Toast.makeText(this, "功能开发中", Toast.LENGTH_SHORT).show();
-        });
-
-        findViewById(R.id.cvMembers).setOnClickListener(v -> {
-            Toast.makeText(this, "功能开发中", Toast.LENGTH_SHORT).show();
-        });
-
-        findViewById(R.id.cvNotice).setOnClickListener(v -> {
-            Toast.makeText(this, "功能开发中", Toast.LENGTH_SHORT).show();
-        });
+        // 初始化动态内容
+        TextView tvWelcome = findViewById(R.id.tvWelcome);
+        TextView tvDate = findViewById(R.id.tvDate);
+        TextView tvNotice = findViewById(R.id.tvNotice);
 
         // 设置当前日期
-        TextView tvDate = findViewById(R.id.tvDate);
         String currentDate = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA).format(new Date());
         tvDate.setText(currentDate);
+
+        // 设置默认欢迎语（后期可替换为真实数据）
+        tvWelcome.setText("欢迎回来，\n李四");
+
+        // 设置示例公告（后期可替换为网络数据）
+        tvNotice.setText("4月15日 14:00-16:00 宿舍楼将停电检修");
+
+        // 设置功能项点击事件
+        findViewById(R.id.cvRepair).setOnClickListener(v -> {
+            startActivity(new Intent(this, RepairActivity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
+        // 其他功能项点击事件
+        View[] functionViews = {
+                findViewById(R.id.cvCharge),
+                findViewById(R.id.cvMembers),
+                findViewById(R.id.cvNotice)
+        };
+
+        for (View view : functionViews) {
+            view.setOnClickListener(v -> {
+                Toast.makeText(this, "功能正在开发中", Toast.LENGTH_SHORT).show();
+            });
+        }
     }
 }
