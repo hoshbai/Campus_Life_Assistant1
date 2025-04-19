@@ -15,6 +15,7 @@ import com.example.campus_life_assistant.R;
 import com.example.campus_life_assistant.RepairActivity;
 import com.example.campus_life_assistant.ScheduleActivity;
 import com.example.campus_life_assistant.StuCardActivity;
+import com.example.campus_life_assistant.SuSheMainActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -55,7 +56,7 @@ public class HomeFragment extends Fragment {
         // 宿舍卡片
         view.findViewById(R.id.dormitoryCard).setOnClickListener(v -> {
             Toast.makeText(getContext(), "跳转到宿舍界面", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getActivity(), RepairActivity.class);
+            Intent intent = new Intent(getActivity(), SuSheMainActivity.class);
             startActivity(intent);
             // 跳转逻辑待实现
         });
