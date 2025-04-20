@@ -38,9 +38,12 @@ public class SuSheMainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
+        findViewById(R.id.cvCharge).setOnClickListener(v -> {
+            startActivity(new Intent(this, SuSheElectricityChargeActivity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
         // 其他功能项点击事件
         View[] functionViews = {
-                findViewById(R.id.cvCharge),
                 findViewById(R.id.cvMembers),
                 findViewById(R.id.cvNotice)
         };
