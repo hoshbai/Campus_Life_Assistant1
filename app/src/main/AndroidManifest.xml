@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Campus_Life_Assistant"
         tools:targetApi="31">
         <activity
+            android:name=".SuSheMemberInfo"
+            android:exported="false" />
+        <activity
             android:name=".SuSheRepairProcessActivity"
             android:exported="false" />
         <activity

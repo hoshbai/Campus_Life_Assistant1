@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvMemberName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名：王五"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMemberBedNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="床位号：A02"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMemberBirthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="生日：2001年3月15日"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMemberAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="年龄：22岁"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMemberPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系方式：1122334455"
+        android:textSize="16sp" />
+</LinearLayout>
