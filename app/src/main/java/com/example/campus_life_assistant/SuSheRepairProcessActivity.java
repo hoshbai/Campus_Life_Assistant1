@@ -28,11 +28,17 @@ public class SuSheRepairProcessActivity extends AppCompatActivity {
         EditText etEvaluation = findViewById(R.id.etEvaluation);
         Button btnSubmitEvaluation = findViewById(R.id.btnSubmitEvaluation);
 
-        // 填充数据
-        tvStudentInfo.setText("学生姓名：张三\n宿舍号：A101");
-        tvDormManagerInfo.setText("宿管姓名：李四\n手机号：12345678901");
-        tvRepairmanContact.setText("维修员姓名：王五\n手机号：98765432101\n预定上门时间：2024-04-02 10:00");
-        tvRepairCompletion.setText("维修员姓名：王五\n手机号：98765432101\n维修完成时间：2024-04-02 12:00");
+        // 检查是否成功获取到报修数据
+        if (request != null) {
+            // 动态填充数据
+            tvStudentInfo.setText("学生姓名：张三\n宿舍号：A101"); // 可以替换为实际的学生信息
+            tvDormManagerInfo.setText("宿管姓名：李四\n手机号：12345678901");
+            tvRepairmanContact.setText("维修员姓名：王五\n手机号：98765432101\n预定上门时间：2024-04-02 10:00");
+            tvRepairCompletion.setText("维修员姓名：王五\n手机号：98765432101\n维修完成时间：2024-04-02 12:00");
+        } else {
+            Toast.makeText(this, "未找到报修信息", Toast.LENGTH_SHORT).show();
+            finish(); // 如果没有数据，关闭当前页面
+        }
 
         // 提交评价
         btnSubmitEvaluation.setOnClickListener(v -> {

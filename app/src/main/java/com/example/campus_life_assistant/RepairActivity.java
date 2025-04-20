@@ -36,7 +36,7 @@ public class RepairActivity extends AppCompatActivity {
     private void setupRecyclerView() {
         RecyclerView rvRepairs = findViewById(R.id.rvRepairs);
         rvRepairs.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        adapter = new RepairAdapter(requests);
+        adapter = new RepairAdapter(requests, this);
         rvRepairs.setLayoutManager(new LinearLayoutManager(this));
         rvRepairs.setAdapter(adapter);
     }
