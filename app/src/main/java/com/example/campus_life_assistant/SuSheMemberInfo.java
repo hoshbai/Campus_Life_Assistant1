@@ -1,9 +1,13 @@
 package com.example.campus_life_assistant;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +23,9 @@ public class SuSheMemberInfo extends AppCompatActivity {
     private ImageView ivMyAvatar;
     private TextView tvMyName, tvMyStudentId, tvMyBedNumber, tvMyBirthday, tvMyAge, tvMyPhone;
     private Button btnRefresh, btnEdit;
+
+    // 用于存储个人信息
+    private String myPhone = "1234567890"; // 默认联系方式
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +53,7 @@ public class SuSheMemberInfo extends AppCompatActivity {
         });
 
         // 编辑按钮点击事件
-//        btnEdit.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, EditProfileActivity.class);
-//            startActivity(intent); // 跳转到编辑页面
-//        });
+        btnEdit.setOnClickListener(v -> showEditDialog());
     }
 
     private void loadMemberData() {
@@ -59,7 +63,7 @@ public class SuSheMemberInfo extends AppCompatActivity {
         tvMyBedNumber.setText("床位号：A01");
         tvMyBirthday.setText("生日：2000年1月1日");
         tvMyAge.setText("年龄：23岁");
-        tvMyPhone.setText("联系方式：1234567890");
+        tvMyPhone.setText("联系方式：" + myPhone);
 
         // 模拟其他成员数据
         List<Member> members = new ArrayList<>();
@@ -86,6 +90,42 @@ public class SuSheMemberInfo extends AppCompatActivity {
 
             llOtherMembers.addView(itemView);
         }
+    }
+
+    // 显示编辑对话框
+    private void showEditDialog() {
+        // 创建对话框布局
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_edit_profile, null);
+
+        // 获取对话框中的控件
+        ImageView ivAvatar = dialogView.findViewById(R.id.ivEditAvatar);
+        EditText etPhone = dialogView.findViewById(R.id.etEditPhone);
+
+        // 设置默认值
+        ivAvatar.setImageDrawable(ivMyAvatar.getDrawable());
+        etPhone.setText(myPhone);
+
+        // 创建对话框
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("编辑个人信息")
+                .setView(dialogView)
+                .setPositiveButton("保存", (dialog, which) -> {
+                    // 更新头像
+                    Bitmap avatarBitmap = ((BitmapDrawable) ivAvatar.getDrawable()).getBitmap();
+                    ivMyAvatar.setImageBitmap(avatarBitmap);
+
+                    // 更新联系方式
+                    String newPhone = etPhone.getText().toString().trim();
+                    if (!newPhone.isEmpty()) {
+                        myPhone = newPhone;
+                        tvMyPhone.setText("联系方式：" + myPhone);
+                        Toast.makeText(this, "信息已保存", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "联系方式不能为空", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
     }
 
     // 成员实体类
