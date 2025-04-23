@@ -32,11 +32,7 @@ public class DatabaseHelper {
         this.context = context; // Store context if needed for future use
     }
 
-    /**
-     * Tests the database connection and returns detailed status information.
-     * Includes connection and socket timeouts in the URL.
-     * @return A ConnectionResult object containing connection status and error details.
-     */
+
     public ConnectionResult testConnection() {
         ConnectionResult result = new ConnectionResult();
         Connection conn = null; // Declare outside try for finally block
